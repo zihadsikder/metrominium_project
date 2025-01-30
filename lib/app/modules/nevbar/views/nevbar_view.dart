@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:metrominium_project/app/modules/more/views/more_view.dart';
@@ -14,7 +15,7 @@ NevbarView({super.key});
   final List pages = [
     const HomeView(),
     const RequestView(),
-    const ServicesView(),
+    ServicesView(),
     const MoreView(),
   ];
 
@@ -65,17 +66,17 @@ void _showMoreOptions(BuildContext context) {
   showModalBottomSheet(
     context: context,
     //isScrollControlled: true, // Allow modal to expand properly
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(top: Radius.circular(30.0)),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(30.r)),
     ),
     builder: (context) {
       return Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             const Icon(Icons.expand_more, size: 30, color: Colors.grey),
-            const SizedBox(height: 16),
+            SizedBox(height: 16.h),
             SizedBox(
               //height: 300, // Set height explicitly to avoid overflow
               child: GridView.builder(
@@ -88,6 +89,7 @@ void _showMoreOptions(BuildContext context) {
                   mainAxisSpacing: 16,
                 ),
                 itemBuilder: (context, index) {
+                  final item = controller.gridItems[index];
                   return GestureDetector(
                     onTap: () {
                       // Handle tap on each grid item
@@ -98,23 +100,22 @@ void _showMoreOptions(BuildContext context) {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-
-                          padding: const EdgeInsets.all(13), // Padding inside the container
+                          padding: const EdgeInsets.all(13),
                           decoration: BoxDecoration(
-                            color: Colors.grey[200], // Background color
-                            borderRadius: BorderRadius.circular(16), // Rounded corners
+                            color: Colors.grey[200],
+                            borderRadius: BorderRadius.circular(16),
                           ),
                           child: Icon(
-                            Icons.mobile_friendly_outlined, // Replace with relevant icons
+                            item.icon, // Dynamic icon
                             size: 24,
                             color: Colors.blue[900],
                           ),
                         ),
-                        const SizedBox(height: 8),
+                  SizedBox(height: 8.h),
                         Text(
-                          "Profile", // Dynamic item names
+                          item.title, // Dynamic title
                           textAlign: TextAlign.center,
-                          style: const TextStyle(fontSize: 12),
+                          style: TextStyle(fontSize: 12.sp),
                         ),
                       ],
                     ),

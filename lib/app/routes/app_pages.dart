@@ -32,7 +32,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.SERVICES,
-      page: () => const ServicesView(),
+      page: () =>ServicesView(),
       binding: ServicesBinding(),
     ),
     GetPage(

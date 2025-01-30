@@ -148,9 +148,12 @@ class RequestView extends GetView<RequestController> {
               ),
             ),
             Divider(thickness: 2,color: Colors.grey.shade200,),
+
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
+                  overflow: TextOverflow.ellipsis,
                   'Booking date:',
                   style: TextStyle(
                     color: Colors.grey[600],
@@ -164,20 +167,15 @@ class RequestView extends GetView<RequestController> {
                     fontSize: 14,
                   ),
                 ),
-                Spacer(),
-                Text(
-                 'Total Amount',
-                  style: TextStyle(
-                    color: Colors.grey[800],
-                    fontSize: 14,
-                  ),
-                ),
+
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Scheduled date',
+                  overflow: TextOverflow.ellipsis,
+                  'Scheduled date:',
                   style: TextStyle(
                     color: Colors.grey[600],
                     fontSize: 14,
@@ -190,9 +188,21 @@ class RequestView extends GetView<RequestController> {
                     fontSize: 14,
                   ),
                 ),
-                Spacer(),
-                Text(
 
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Total Amount',
+                  style: TextStyle(
+                      color: Colors.grey[800],
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500
+                  ),
+                ),
+                Text(
                   '${booking.totalAmount.toStringAsFixed(2)} \$',
                   style: TextStyle(
                     color: Colors.blue[900],
@@ -202,86 +212,13 @@ class RequestView extends GetView<RequestController> {
                 ),
               ],
             ),
-            // _buildDateRow(
-            //   'Booking date:',
-            //   booking.bookingDate,
-            //   'Total amount',
-            //   booking.totalAmount,
-            // ),
-            // //SizedBox(height: 8),
-            // _buildDateRow(
-            //   'Scheduled date:',
-            //   booking.scheduledDate,
-            //   null,
-            //   null,
-            // ),
+
+
           ],
         ),
       ),
     );
   }
 
-  // Widget _buildDateRow(
-  //     String label1,
-  //     DateTime date,
-  //     String? label2,
-  //     double? amount,
-  //     ) {
-  //   return Row(
-  //     crossAxisAlignment: CrossAxisAlignment.start,
-  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //     children: [
-  //       Expanded(
-  //         child: Row(
-  //           children: [
-  //             Text(
-  //               label1,
-  //               style: TextStyle(
-  //                 color: Colors.grey[600],
-  //                 fontSize: 14,
-  //               ),
-  //             ),
-  //             SizedBox(width: 4),
-  //             Text(
-  //               DateFormat('dd MMM, yyyy hh:mm a').format(date),
-  //               style: TextStyle(
-  //                 color: Colors.grey[800],
-  //                 fontSize: 14,
-  //               ),
-  //             ),
-  //             //Spacer(),
-  //             // Text(
-  //             //  'Total Amount',
-  //             //   style: TextStyle(
-  //             //     color: Colors.grey[800],
-  //             //     fontSize: 14,
-  //             //   ),
-  //             // ),
-  //           ],
-  //         ),
-  //       ),
-  //       if (label2 != null && amount != null)
-  //         Column(
-  //           crossAxisAlignment: CrossAxisAlignment.end,
-  //           children: [
-  //             Text(
-  //               label2,
-  //               style: TextStyle(
-  //                 color: Colors.grey[600],
-  //                 fontSize: 14,
-  //               ),
-  //             ),
-  //             Text(
-  //               '${amount.toStringAsFixed(2)} \$',
-  //               style: TextStyle(
-  //                 color: Colors.blue[900],
-  //                 fontSize: 16,
-  //                 fontWeight: FontWeight.w600,
-  //               ),
-  //             ),
-  //           ],
-  //         ),
-  //     ],
-  //   );
-  // }
+
 }

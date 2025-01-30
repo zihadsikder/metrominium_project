@@ -157,7 +157,7 @@ class HomeView extends GetView<HomeController> {
                         childAspectRatio: 1,
                       ),
                       padding: const EdgeInsets.all(16),
-                      itemCount: 3,
+                      itemCount: 4,
                       itemBuilder: (context, index) {
                         return Container(
                           width: 100,
